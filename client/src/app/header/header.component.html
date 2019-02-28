@@ -1,0 +1,56 @@
+ <!--==========================
+    Header
+  ============================-->
+  <header id="header">
+      <div class="container">
+  
+        <div id="logo" class="pull-left">
+          <!-- Uncomment below if you prefer to use a text logo -->
+          <!-- <h1><a href="#main">C<span>o</span>nf</a></h1>-->
+          <a href="/" class="scrollto navbar-brand"><img src="../../assets/img/logo.png" alt="" title="">
+            &nbsp;&nbsp;Music Lovers
+          </a>
+        </div>
+  
+        <nav id="nav-menu-container">
+          <ul class="nav-menu">
+            <li class=" menu-active"><a routerLink="">Home</a></li>
+            <li><a routerLink="" >About</a></li>
+
+            <li class="dropdown">
+                <a class="dropdown-toggle"
+                   data-toggle="dropdown"
+                   href="#">
+                   Songs
+                    <b class="caret"></b>
+                  </a>
+                <ul class="dropdown-menu">
+                    <li><a routerLink="">Songs Home</a></li>
+                    <li><a href="/song/add">Add Song</a></li>
+                </ul>
+              </li>
+
+              <li class="dropdown">
+                  <a class="dropdown-toggle"
+                     data-toggle="dropdown"
+                     href="#">
+                     Genres
+                      <b class="caret"></b>
+                    </a>
+                  <ul class="dropdown-menu">
+                      <li><a routerLink="">Genres</a></li>
+                      <li><a href="/genure/add">Add Genre</a></li>
+                  </ul>
+                </li>              
+            <li><a routerLink="">Contact</a></li>
+            
+            
+
+          </ul>
+        </nav><!-- #nav-menu-container -->
+      </div>
+      <a href="#" class="shopping-cart">
+        <!-- <i class="fa fa-envelope fa-5x fa-border icon-grey badge">5</i> -->
+        <i class="fa fa-shopping-cart"> <span class="cart_count">{{cart_count}}</span> </i>
+      </a>
+    </header><!-- #header -->

@@ -1,0 +1,66 @@
+     <!--==========================
+    Intro Section
+  ============================-->
+  <section id="intro">
+    <div class="intro-container wow fadeIn">
+      <h1 class="mb-4 pb-0">The ICT<br><span>Music Lover</span> Portal</h1>
+      <p class="mb-4 pb-0">“Music is like a dream. One that I cannot hear.” ―  Ludwig van Beethoven</p>
+      
+      <a href="#about" class="about-btn scrollto">About Us</a>
+    </div>
+  </section>
+
+<main id="main">
+  <!--==========================
+        About Section
+      ============================-->
+      <section id="about">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8">
+                <h2>About The Music Lovers Portal</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque urna ante, eleifend non accumsan ut, fermentum eu purus. Morbi euismod eu sem at pulvinar. Nullam purus orci, blandit eget faucibus vitae, commodo ut odio. Vivamus vel ex at leo euismod placerat eget condimentum odio. Nunc elementum, nisi quis aliquet dapibus, arcu nibh aliquam massa, non mollis eros felis sed mi. Donec laoreet lorem vehicula sem viverra egestas.  </p>
+              </div>
+              <div class="col-lg-4">
+                
+              </div>
+            </div>
+          </div>
+        </section>
+<!-- Songs HOme Section -->
+<section id="songs" class="wow fadeInUp">
+  <div class="container">
+    <div class="section-header">
+      <h2>Our Collection</h2>
+      <p>Here are some of our Songs</p>
+    </div>
+
+    <div class="row">
+      
+        <div class="col-lg-4 col-md-6" *ngFor="let song of songData">
+            <div class="speaker">
+
+                <img class="img-fluid" src="../../assets/img/song/{{song.songImage}}" alt="">
+                <div class="details">
+                      <h3><a routerLink="songdetails/{{song.songLink}}">{{song.songName}}</a></h3>
+                    <p>Artist : {{song.songArtist}}</p>
+                    <div class="social">
+                      <a href=""><i class="fa fa-twitter"></i></a>
+                      <a href=""><i class="fa fa-facebook"></i></a>
+                      <a href=""><i class="fa fa-google-plus"></i></a>
+                      <a href=""><i class="fa fa-linkedin"></i></a>
+                    </div>
+                </div>  
+                </div> 
+                </div>  
+    
+
+</div>
+</div>
+
+</section>
+
+<!-- songs section ends -->
+
+  
+  </main>

@@ -1,0 +1,68 @@
+      <main id="main" class="main-page">
+          <!--==========================
+            Speaker Details Section
+          ============================-->
+          <section id="speakers-details" class="wow fadeIn">
+            <div class="container">
+              <div class="section-header">
+                <h2>Song Details</h2>
+                <p>Praesentium ut qui possimus sapiente nulla.</p>
+              </div>
+              
+              <div class="row">
+                <div class="col-md-6">
+                      <div class="row">
+                  <img src="../../assets/img/song/{{songData.songImage}}" alt="Speaker 1" class="img-fluid">
+                  </div>
+                  <div class="container p-3">
+                          <div  class="center-block text-center">
+                      <a href="/song/edit/{{songData.songLink}}">
+                          <button type="button" class="btn btn-info m-3">Edit</button>
+                          </a>
+                          <button type="button" class="btn btn-danger"  data-toggle="modal" data-target="#deleteSongModal" >Delete</button>
+                  </div>
+                  </div>
+                </div>
+      
+                <div class="col-md-6">
+                  <div class="details">
+                    <h2>{{songData.songName}}</h2>
+                   <ul>
+                       <li>Album : {{songData.songAlbum}}</li>
+                       <li>Artist :{{songData.songArtist}}</li>
+                  </ul>
+                  {{songData.songDesc}}
+                  <iframe width="560" height="315" src="{{songData.songYoutubeLink}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+                </div>
+                
+              </div>
+              <!-- Modal -->
+  <div class="modal fade" id="deleteSongModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+              <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Are you Sure?</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body">
+                  Are you sure you wanna delete the song "<%=songData[i].songName%>" from the system?
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal"> Cancel </button>
+                  <a href="/song/delete/<%=songData[i].songLink%>">
+                  <button type="button" class="btn btn-primary"> Delete! </button>
+                  </a>
+              </div>
+              </div>
+          </div>
+      </div>
+              
+            </div>
+      
+          </section>
+      
+        </main>
+ 
