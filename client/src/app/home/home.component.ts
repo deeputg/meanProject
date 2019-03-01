@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
   constructor(private httpVar:HttpClient) { }
 
   ngOnInit() {
-    this.httpVar.get("http://127.0.0.1:8000/home").subscribe(data=>{
+    this.httpVar.get("home").subscribe(data=>{
       this.songData = data;
     })
     
