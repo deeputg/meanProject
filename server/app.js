@@ -7,9 +7,9 @@ var genureRouter = require("./routes/genure")
 var genureModel = require("./model/genure")
 var songModel = require("./model/song")
 
-//const dburl = "mongodb+srv://deepu:deepu@cluster0-qvi3q.mongodb.net/test?retryWrites=true";
+const dburl = "mongodb+srv://deepu:deepu@cluster0-qvi3q.mongodb.net/test?retryWrites=true";
 
-const dburl = "mongodb://127.0.0.1:27017/mymongodb";
+//const dburl = "mongodb://127.0.0.1:27017/mymongodb";
 const app = express();
 
 app.use(bodyParser.urlencoded({extended:true}))
