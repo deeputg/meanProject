@@ -22,7 +22,7 @@ export class SongDetailsComponent implements OnInit {
   }
 
   getDetails(songLink){
-    this.httpVar.get('http://127.0.0.1:8000/song/detail/'+songLink).subscribe(data=>{
+    this.httpVar.get('song/detail/'+songLink).subscribe(data=>{
       this.songData=data[0];
       console.log(data[0])
     })
