@@ -1,0 +1,42 @@
+<main id="main">
+<!--==========================
+  Cart Item showing section
+============================-->
+  <section id="speakers-details" class="wow fadeIn">
+    <div class="container">
+      <div class="section-header">
+        <h2>Cart</h2>
+        <p>Praesentium ut qui possimus sapiente nulla.</p>
+      </div>
+
+      
+      <div id="schedule">
+        <div class="row schedule-item" *ngFor="let cartItem of cart">
+          <div class="col-md-2">
+            <div class="speaker">
+              <img src="../../assets/img/song/{{cartItem.songImage}}" alt="Hubert Hirthe">
+            </div>
+          </div>
+          <div class="col-md-8">
+              
+            <h4>{{cartItem.songName}}</h4>
+          </div>
+          <div class="col-md-2">
+            <div class="item_count_div row">
+              <i class="fa fa-minus" (click)="minusFromCart(cartItem.songLink)"></i>
+              <input type="number" class="item_count" value="{{cartItem.count}}" readonly>
+              <i class="fa fa-plus" (click)="addToCart(cartItem.songLink,cartItem.songName,cartItem.songImage)"></i>
+            </div>
+            <div class="cart_remove row">
+              <button class="btn btn-danger" (click)="removeFromCart(cartItem.songLink)">Remove</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+  </section>
+</main>
+      

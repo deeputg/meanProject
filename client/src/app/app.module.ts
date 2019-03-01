@@ -9,11 +9,13 @@ import {RouterModule,Routes} from '@angular/router';
 import { HomeComponent } from './home/home.component';
 //import hhtpClient Module for listenig from a server
 import {HttpClientModule} from "@angular/common/http";
-import { SongDetailsComponent } from './song-details/song-details.component'
+import { SongDetailsComponent } from './song-details/song-details.component';
+import { CartComponent } from './cart/cart.component'
 
 const appRoutes:Routes = [
   {path:"",component:HomeComponent},
-  {path:"songdetails/:songLink",component:SongDetailsComponent}
+  {path:"songdetails/:songLink",component:SongDetailsComponent},
+  {path:"cart",component:CartComponent}
 ]
 
 @NgModule({
@@ -22,7 +24,8 @@ const appRoutes:Routes = [
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    SongDetailsComponent
+    SongDetailsComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

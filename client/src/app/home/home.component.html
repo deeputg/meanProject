@@ -1,4 +1,8 @@
-     <!--==========================
+<a routerLink="cart" class="shopping-cart">
+  <!-- <i class="fa fa-envelope fa-5x fa-border icon-grey badge">5</i> -->
+  <i class="fa fa-shopping-cart"> <span class="cart_count">{{cart_count}}</span> </i>
+</a>
+    <!--==========================
     Intro Section
   ============================-->
   <section id="intro">
@@ -45,10 +49,8 @@
                       <h3><a routerLink="songdetails/{{song.songLink}}">{{song.songName}}</a></h3>
                     <p>Artist : {{song.songArtist}}</p>
                     <div class="social">
-                      <a href=""><i class="fa fa-twitter"></i></a>
-                      <a href=""><i class="fa fa-facebook"></i></a>
-                      <a href=""><i class="fa fa-google-plus"></i></a>
-                      <a href=""><i class="fa fa-linkedin"></i></a>
+                      <a (click)="addToCart(song.songLink,song.songName,song.songImage)"><i class="fa fa-plus"> </i>Add to cart</a>
+                      
                     </div>
                 </div>  
                 </div> 

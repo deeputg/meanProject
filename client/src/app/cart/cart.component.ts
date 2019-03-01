@@ -1,27 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http'
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-cart',
+  templateUrl: './cart.component.html',
+  styleUrls: ['./cart.component.css']
 })
-export class HomeComponent implements OnInit {
-  
-  songData;
+export class CartComponent implements OnInit {
   cart_count= 0;
   cart=[];
-  constructor(private httpVar:HttpClient) { }
+  constructor() { }
 
   ngOnInit() {
-    let homelink = "home";
-    //let homelink = "http://127.0.0.1:8000/home";
-    this.httpVar.get(homelink).subscribe(data=>{
-      this.songData = data;
-      this.getsetLocarStorageCart()
-      this.cart_count=this.cart.length
-    })
-    
+    this.getsetLocarStorageCart()
+    this.cart_count=this.cart.length
   }
   addToCart(songLink,songName,songImage){
     if(!this.isInCartUpdate(songLink)){
@@ -30,6 +21,29 @@ export class HomeComponent implements OnInit {
      this.cart_count = this.cart_count+1;
     }
     this.setLocarStorageCart();
+  }
+  minusFromCart(songLink){
+
+    for (var index = 0; index < this.cart.length; ++index) {
+      var cartItem = this.cart[index];
+      if(cartItem.songLink == songLink){
+        cartItem.count = cartItem.count-1;
+        if(cartItem.count==0)
+          this.removeFromCart(songLink);
+      }
+    }
+    this.setLocarStorageCart();
+  }
+  removeFromCart(songLink){
+    for (var index = 0; index < this.cart.length; ++index) {
+      var cartItem = this.cart[index];
+      if(cartItem.songLink == songLink){
+        console.log(this.cart)
+       this.cart.splice(index,1)
+       console.log(this.cart)
+      }
+    }
+    this.setLocarStorageCart()
   }
   isInCartUpdate(songLink){
     //console.log(this.cart)
@@ -41,7 +55,6 @@ export class HomeComponent implements OnInit {
         hasMatch = true;
         cartItem.count = cartItem.count+1;
         
-        console.log(this.cart)
         break;
       }
     }
@@ -54,4 +67,5 @@ export class HomeComponent implements OnInit {
     if(localStorage.getItem("cart"))
       this.cart = JSON.parse(localStorage.getItem("cart"))
   }
+
 }
