@@ -23,6 +23,62 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 
 /***/ }),
 
+/***/ "./src/app/add-song/add-song.component.css":
+/*!*************************************************!*\
+  !*** ./src/app/add-song/add-song.component.css ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkZC1zb25nL2FkZC1zb25nLmNvbXBvbmVudC5jc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/add-song/add-song.component.html":
+/*!**************************************************!*\
+  !*** ./src/app/add-song/add-song.component.html ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/add-song/add-song.component.ts":
+/*!************************************************!*\
+  !*** ./src/app/add-song/add-song.component.ts ***!
+  \************************************************/
+/*! exports provided: AddSongComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddSongComponent", function() { return AddSongComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var AddSongComponent = /** @class */ (function () {
+    function AddSongComponent() {
+    }
+    AddSongComponent.prototype.ngOnInit = function () {
+    };
+    AddSongComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-add-song',
+            template: __webpack_require__(/*! ./add-song.component.html */ "./src/app/add-song/add-song.component.html"),
+            styles: [__webpack_require__(/*! ./add-song.component.css */ "./src/app/add-song/add-song.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], AddSongComponent);
+    return AddSongComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/app.component.css":
 /*!***********************************!*\
   !*** ./src/app/app.component.css ***!
@@ -99,6 +155,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var _song_details_song_details_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./song-details/song-details.component */ "./src/app/song-details/song-details.component.ts");
 /* harmony import */ var _cart_cart_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./cart/cart.component */ "./src/app/cart/cart.component.ts");
+/* harmony import */ var _add_song_add_song_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./add-song/add-song.component */ "./src/app/add-song/add-song.component.ts");
 
 
 
@@ -112,10 +169,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var appRoutes = [
     { path: "", component: _home_home_component__WEBPACK_IMPORTED_MODULE_7__["HomeComponent"] },
     { path: "songdetails/:songLink", component: _song_details_song_details_component__WEBPACK_IMPORTED_MODULE_9__["SongDetailsComponent"] },
-    { path: "cart", component: _cart_cart_component__WEBPACK_IMPORTED_MODULE_10__["CartComponent"] }
+    { path: "cart", component: _cart_cart_component__WEBPACK_IMPORTED_MODULE_10__["CartComponent"] },
+    { path: "song/add", component: _add_song_add_song_component__WEBPACK_IMPORTED_MODULE_11__["AddSongComponent"] }
 ];
 var AppModule = /** @class */ (function () {
     function AppModule() {
@@ -128,7 +187,8 @@ var AppModule = /** @class */ (function () {
                 _footer_footer_component__WEBPACK_IMPORTED_MODULE_5__["FooterComponent"],
                 _home_home_component__WEBPACK_IMPORTED_MODULE_7__["HomeComponent"],
                 _song_details_song_details_component__WEBPACK_IMPORTED_MODULE_9__["SongDetailsComponent"],
-                _cart_cart_component__WEBPACK_IMPORTED_MODULE_10__["CartComponent"]
+                _cart_cart_component__WEBPACK_IMPORTED_MODULE_10__["CartComponent"],
+                _add_song_add_song_component__WEBPACK_IMPORTED_MODULE_11__["AddSongComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -164,7 +224,7 @@ module.exports = ".item_count{\n    width: 50px;\n    margin-left: 10px;\n    ma
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<main id=\"main\">\n<!--==========================\n  Cart Item showing section\n============================-->\n  <section id=\"speakers-details\" class=\"wow fadeIn\">\n    <div class=\"container\">\n      <div class=\"section-header\">\n        <h2>Cart</h2>\n        <p>Praesentium ut qui possimus sapiente nulla.</p>\n      </div>\n\n      \n      <div id=\"schedule\">\n        <div class=\"row schedule-item\" *ngFor=\"let cartItem of cart\">\n          <div class=\"col-md-2\">\n            <div class=\"speaker\">\n              <img src=\"../../assets/img/song/{{cartItem.songImage}}\" alt=\"Hubert Hirthe\">\n            </div>\n          </div>\n          <div class=\"col-md-8\">\n              \n            <h4>{{cartItem.songName}}</h4>\n          </div>\n          <div class=\"col-md-2\">\n            <div class=\"item_count_div row\">\n              <i class=\"fa fa-minus\" (click)=\"minusFromCart(cartItem.songLink)\"></i>\n              <input type=\"number\" class=\"item_count\" value=\"{{cartItem.count}}\" readonly>\n              <i class=\"fa fa-plus\" (click)=\"addToCart(cartItem.songLink,cartItem.songName,cartItem.songImage)\"></i>\n            </div>\n            <div class=\"cart_remove row\">\n              <button class=\"btn btn-danger\" (click)=\"removeFromCart(cartItem.songLink)\">Remove</button>\n            </div>\n          </div>\n        </div>\n      </div>\n\n\n    </div>\n\n  </section>\n</main>\n      "
+module.exports = "<main id=\"main\">\n<!--==========================\n  Cart Item showing section\n============================-->\n  <section id=\"speakers-details\" class=\"wow fadeIn\">\n    <div class=\"container\">\n      <div class=\"section-header\">\n        <h2>Cart</h2>\n        <p>Praesentium ut qui possimus sapiente nulla.</p>\n      </div>\n\n      \n      <div id=\"schedule\">\n        <div class=\"row schedule-item\" *ngFor=\"let cartItem of cart\">\n          <div class=\"col-md-2\">\n            <div class=\"speaker\">\n              <img src=\"../../assets/img/song/{{cartItem.songImage}}\" alt=\"Hubert Hirthe\">\n            </div>\n          </div>\n          <div class=\"col-md-7\">\n              \n            <h4>{{cartItem.songName}}</h4>\n          </div>\n          <div class=\"col-md-1\">\n            <p>{{cartItem.songPrice*cartItem.count}}</p>\n          </div>\n          <div class=\"col-md-2\">\n            <div class=\"item_count_div row\">\n              <i class=\"fa fa-minus\" (click)=\"minusFromCart(cartItem.songLink,cartItem.songPrice)\"></i>\n              <input type=\"number\" class=\"item_count\" value=\"{{cartItem.count}}\" readonly>\n              <i class=\"fa fa-plus\" (click)=\"addToCart(cartItem.songLink,cartItem.songName,cartItem.songImage,cartItem.songPrice)\"></i>\n            </div>\n            <div class=\"cart_remove row\">\n              <button class=\"btn btn-danger\" (click)=\"removeFromCart(cartItem.songLink,cartItem.songPrice)\">Remove</button>\n            </div>\n          </div>\n        </div>\n\n        <div class=\"row schedule-item\">\n          <div class=\"col-md-7\">\n            Cart Total :\n          </div>\n          <div class=\"col-md-1\">\n            <p>{{cart_total}}</p>\n          </div>\n          <div class=\"col-md-2\">\n            <div class=\"cart_remove row\">\n              <button class=\"btn btn-info\" >Checkout</button>\n            </div>\n          </div>\n        </div>\n\n      </div>\n\n\n    </div>\n\n  </section>\n</main>\n      "
 
 /***/ }),
 
@@ -185,43 +245,50 @@ __webpack_require__.r(__webpack_exports__);
 var CartComponent = /** @class */ (function () {
     function CartComponent() {
         this.cart_count = 0;
+        this.cart_total = 0;
         this.cart = [];
     }
     CartComponent.prototype.ngOnInit = function () {
-        this.getsetLocarStorageCart();
+        this.getLocarStorageCart();
+        this.getLocalStorageCartAmount();
         this.cart_count = this.cart.length;
+        window.scrollTo(0, 0);
     };
-    CartComponent.prototype.addToCart = function (songLink, songName, songImage) {
-        if (!this.isInCartUpdate(songLink)) {
-            var cartItem = { songLink: songLink, songName: songName, songImage: songImage, count: 1, price: 10 };
+    CartComponent.prototype.addToCart = function (songLink, songName, songImage, songPrice) {
+        console.log(songPrice);
+        if (!this.isInCartUpdate(songLink, songPrice)) {
+            var cartItem = { songLink: songLink, songName: songName, songImage: songImage, count: 1, songPrice: songPrice };
             this.cart.push(cartItem);
             this.cart_count = this.cart_count + 1;
+            this.cart_total = this.cart_total + songPrice;
         }
         this.setLocarStorageCart();
     };
-    CartComponent.prototype.minusFromCart = function (songLink) {
+    CartComponent.prototype.minusFromCart = function (songLink, songPrice) {
         for (var index = 0; index < this.cart.length; ++index) {
             var cartItem = this.cart[index];
             if (cartItem.songLink == songLink) {
                 cartItem.count = cartItem.count - 1;
+                this.cart_total = this.cart_total - songPrice;
                 if (cartItem.count == 0)
-                    this.removeFromCart(songLink);
+                    this.removeFromCart(songLink, songPrice);
             }
         }
         this.setLocarStorageCart();
     };
-    CartComponent.prototype.removeFromCart = function (songLink) {
+    CartComponent.prototype.removeFromCart = function (songLink, songPrice) {
         for (var index = 0; index < this.cart.length; ++index) {
             var cartItem = this.cart[index];
             if (cartItem.songLink == songLink) {
-                console.log(this.cart);
+                //console.log(this.cart)
+                this.cart_total = this.cart_total - (cartItem.count * songPrice);
                 this.cart.splice(index, 1);
-                console.log(this.cart);
+                //console.log(this.cart)
             }
         }
         this.setLocarStorageCart();
     };
-    CartComponent.prototype.isInCartUpdate = function (songLink) {
+    CartComponent.prototype.isInCartUpdate = function (songLink, songPrice) {
         //console.log(this.cart)
         var hasMatch = false;
         for (var index = 0; index < this.cart.length; ++index) {
@@ -229,6 +296,8 @@ var CartComponent = /** @class */ (function () {
             if (cartItem.songLink == songLink) {
                 hasMatch = true;
                 cartItem.count = cartItem.count + 1;
+                this.cart_total = this.cart_total + songPrice;
+                //console.log(this.cart)
                 break;
             }
         }
@@ -236,10 +305,15 @@ var CartComponent = /** @class */ (function () {
     };
     CartComponent.prototype.setLocarStorageCart = function () {
         localStorage.setItem("cart", JSON.stringify(this.cart));
+        localStorage.setItem("cart_total", String(this.cart_total));
     };
-    CartComponent.prototype.getsetLocarStorageCart = function () {
+    CartComponent.prototype.getLocarStorageCart = function () {
         if (localStorage.getItem("cart"))
             this.cart = JSON.parse(localStorage.getItem("cart"));
+    };
+    CartComponent.prototype.getLocalStorageCartAmount = function () {
+        if (localStorage.getItem("cart_total"))
+            this.cart_total = parseInt(localStorage.getItem("cart_total"));
     };
     CartComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -330,7 +404,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = " <!--==========================\n    Header\n  ============================-->\n  <header id=\"header\">\n      <div class=\"container\">\n  \n        <div id=\"logo\" class=\"pull-left\">\n          <!-- Uncomment below if you prefer to use a text logo -->\n          <!-- <h1><a href=\"#main\">C<span>o</span>nf</a></h1>-->\n          <a href=\"/\" class=\"scrollto navbar-brand\"><img src=\"../../assets/img/logo.png\" alt=\"\" title=\"\">\n            &nbsp;&nbsp;Music Lovers\n          </a>\n        </div>\n  \n        <nav id=\"nav-menu-container\">\n          <ul class=\"nav-menu\">\n            <li class=\" menu-active\"><a routerLink=\"\">Home</a></li>\n            <li><a routerLink=\"\" >About</a></li>\n\n            <li class=\"dropdown\">\n                <a class=\"dropdown-toggle\"\n                   data-toggle=\"dropdown\"\n                   href=\"#\">\n                   Songs\n                    <b class=\"caret\"></b>\n                  </a>\n                <ul class=\"dropdown-menu\">\n                    <li><a routerLink=\"\">Songs Home</a></li>\n                    <li><a href=\"/song/add\">Add Song</a></li>\n                </ul>\n              </li>\n\n              <li class=\"dropdown\">\n                  <a class=\"dropdown-toggle\"\n                     data-toggle=\"dropdown\"\n                     href=\"#\">\n                     Genres\n                      <b class=\"caret\"></b>\n                    </a>\n                  <ul class=\"dropdown-menu\">\n                      <li><a routerLink=\"\">Genres</a></li>\n                      <li><a href=\"/genure/add\">Add Genre</a></li>\n                  </ul>\n                </li>              \n            <li><a routerLink=\"\">Contact</a></li>\n            \n            \n\n          </ul>\n        </nav><!-- #nav-menu-container -->\n      </div>\n      \n    </header><!-- #header -->"
+module.exports = " <!--==========================\n    Header\n  ============================-->\n  <header id=\"header\">\n      <div class=\"container\">\n  \n        <div id=\"logo\" class=\"pull-left\">\n          <!-- Uncomment below if you prefer to use a text logo -->\n          <!-- <h1><a href=\"#main\">C<span>o</span>nf</a></h1>-->\n          <a routerLink=\"/\" class=\"scrollto navbar-brand\"><img src=\"../../assets/img/logo.png\" alt=\"\" title=\"\">\n            &nbsp;&nbsp;Music Lovers\n          </a>\n        </div>\n  \n        <nav id=\"nav-menu-container\">\n          <ul class=\"nav-menu\">\n            <li class=\" menu-active\"><a routerLink=\"\">Home</a></li>\n            <li><a routerLink=\"\" >About</a></li>\n\n            <li class=\"dropdown\">\n                <a class=\"dropdown-toggle\"\n                   data-toggle=\"dropdown\"\n                   href=\"#\">\n                   Songs\n                    <b class=\"caret\"></b>\n                  </a>\n                <ul class=\"dropdown-menu\">\n                    <li><a routerLink=\"\">Songs Home</a></li>\n                    <li><a routerLink=\"/song/add\">Add Song</a></li>\n                </ul>\n              </li>\n\n              <li class=\"dropdown\">\n                  <a class=\"dropdown-toggle\"\n                     data-toggle=\"dropdown\"\n                     href=\"#\">\n                     Genres\n                      <b class=\"caret\"></b>\n                    </a>\n                  <ul class=\"dropdown-menu\">\n                      <li><a routerLink=\"\">Genres</a></li>\n                      <li><a href=\"/genure/add\">Add Genre</a></li>\n                  </ul>\n                </li>              \n            <li><a routerLink=\"\">Contact</a></li>\n            \n            \n\n          </ul>\n        </nav><!-- #nav-menu-container -->\n      </div>\n      \n    </header><!-- #header -->"
 
 /***/ }),
 
@@ -386,7 +460,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<a routerLink=\"cart\" class=\"shopping-cart\">\n  <!-- <i class=\"fa fa-envelope fa-5x fa-border icon-grey badge\">5</i> -->\n  <i class=\"fa fa-shopping-cart\"> <span class=\"cart_count\">{{cart_count}}</span> </i>\n</a>\n    <!--==========================\n    Intro Section\n  ============================-->\n  <section id=\"intro\">\n    <div class=\"intro-container wow fadeIn\">\n      <h1 class=\"mb-4 pb-0\">The ICT<br><span>Music Lover</span> Portal</h1>\n      <p class=\"mb-4 pb-0\">“Music is like a dream. One that I cannot hear.” ―  Ludwig van Beethoven</p>\n      \n      <a href=\"#about\" class=\"about-btn scrollto\">About Us</a>\n    </div>\n  </section>\n\n<main id=\"main\">\n  <!--==========================\n        About Section\n      ============================-->\n      <section id=\"about\">\n          <div class=\"container\">\n            <div class=\"row\">\n              <div class=\"col-lg-8\">\n                <h2>About The Music Lovers Portal</h2>\n                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque urna ante, eleifend non accumsan ut, fermentum eu purus. Morbi euismod eu sem at pulvinar. Nullam purus orci, blandit eget faucibus vitae, commodo ut odio. Vivamus vel ex at leo euismod placerat eget condimentum odio. Nunc elementum, nisi quis aliquet dapibus, arcu nibh aliquam massa, non mollis eros felis sed mi. Donec laoreet lorem vehicula sem viverra egestas.  </p>\n              </div>\n              <div class=\"col-lg-4\">\n                \n              </div>\n            </div>\n          </div>\n        </section>\n<!-- Songs HOme Section -->\n<section id=\"songs\" class=\"wow fadeInUp\">\n  <div class=\"container\">\n    <div class=\"section-header\">\n      <h2>Our Collection</h2>\n      <p>Here are some of our Songs</p>\n    </div>\n\n    <div class=\"row\">\n      \n        <div class=\"col-lg-4 col-md-6\" *ngFor=\"let song of songData\">\n            <div class=\"speaker\">\n\n                <img class=\"img-fluid\" src=\"../../assets/img/song/{{song.songImage}}\" alt=\"\">\n                <div class=\"details\">\n                      <h3><a routerLink=\"songdetails/{{song.songLink}}\">{{song.songName}}</a></h3>\n                    <p>Artist : {{song.songArtist}}</p>\n                    <div class=\"social\">\n                      <a (click)=\"addToCart(song.songLink,song.songName,song.songImage)\"><i class=\"fa fa-plus\"> </i>Add to cart</a>\n                      \n                    </div>\n                </div>  \n                </div> \n                </div>  \n    \n\n</div>\n</div>\n\n</section>\n\n<!-- songs section ends -->\n\n  \n  </main>"
+module.exports = "<a routerLink=\"cart\" class=\"shopping-cart\">\n  <!-- <i class=\"fa fa-envelope fa-5x fa-border icon-grey badge\">5</i> -->\n  <i class=\"fa fa-shopping-cart\"> <span class=\"cart_count\">{{cart_count}}</span> </i>\n</a>\n    <!--==========================\n    Intro Section\n  ============================-->\n  <section id=\"intro\">\n    <div class=\"intro-container wow fadeIn\">\n      <h1 class=\"mb-4 pb-0\">The ICT<br><span>Music Lover</span> Portal</h1>\n      <p class=\"mb-4 pb-0\">“Music is like a dream. One that I cannot hear.” ―  Ludwig van Beethoven</p>\n      \n      <a href=\"#about\" class=\"about-btn scrollto\">About Us</a>\n    </div>\n  </section>\n\n<main id=\"main\">\n  <!--==========================\n        About Section\n      ============================-->\n      <section id=\"about\">\n          <div class=\"container\">\n            <div class=\"row\">\n              <div class=\"col-lg-8\">\n                <h2>About The Music Lovers Portal</h2>\n                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque urna ante, eleifend non accumsan ut, fermentum eu purus. Morbi euismod eu sem at pulvinar. Nullam purus orci, blandit eget faucibus vitae, commodo ut odio. Vivamus vel ex at leo euismod placerat eget condimentum odio. Nunc elementum, nisi quis aliquet dapibus, arcu nibh aliquam massa, non mollis eros felis sed mi. Donec laoreet lorem vehicula sem viverra egestas.  </p>\n              </div>\n              <div class=\"col-lg-4\">\n                \n              </div>\n            </div>\n          </div>\n        </section>\n<!-- Songs HOme Section -->\n<section id=\"songs\" class=\"wow fadeInUp\">\n  <div class=\"container\">\n    <div class=\"section-header\">\n      <h2>Our Collection</h2>\n      <p>Here are some of our Songs</p>\n    </div>\n\n    <div class=\"row\">\n      \n        <div class=\"col-lg-4 col-md-6\" *ngFor=\"let song of songData\">\n            <div class=\"speaker\">\n\n                <img class=\"img-fluid\" src=\"../../assets/img/song/{{song.songImage}}\" alt=\"\">\n                <div class=\"details\">\n                      <h3><a routerLink=\"songdetails/{{song.songLink}}\">{{song.songName}}</a></h3>\n                    <p>Artist : {{song.songArtist}}</p>\n                    <div class=\"social\">\n                      <a class=\"btn btn-info\" (click)=\"addToCart(song.songLink,song.songName,song.songImage,song.price)\"><i class=\"fa fa-plus\"> </i>Add to cart</a>\n                      \n                    </div>\n                </div>  \n                </div> \n                </div>  \n    \n\n</div>\n</div>\n\n</section>\n\n<!-- songs section ends -->\n\n  \n  </main>"
 
 /***/ }),
 
@@ -410,6 +484,7 @@ var HomeComponent = /** @class */ (function () {
     function HomeComponent(httpVar) {
         this.httpVar = httpVar;
         this.cart_count = 0;
+        this.cart_total = 0;
         this.cart = [];
     }
     HomeComponent.prototype.ngOnInit = function () {
@@ -418,27 +493,30 @@ var HomeComponent = /** @class */ (function () {
         //let homelink = "http://127.0.0.1:8000/home";
         this.httpVar.get(homelink).subscribe(function (data) {
             _this.songData = data;
-            _this.getsetLocarStorageCart();
+            _this.getLocarStorageCart();
+            _this.getLocalStorageCartAmount();
             _this.cart_count = _this.cart.length;
         });
     };
-    HomeComponent.prototype.addToCart = function (songLink, songName, songImage) {
-        if (!this.isInCartUpdate(songLink)) {
-            var cartItem = { songLink: songLink, songName: songName, songImage: songImage, count: 1, price: 10 };
+    HomeComponent.prototype.addToCart = function (songLink, songName, songImage, songPrice) {
+        //console.log(songPrice)
+        if (!this.isInCartUpdate(songLink, songPrice)) {
+            var cartItem = { songLink: songLink, songName: songName, songImage: songImage, count: 1, songPrice: songPrice };
             this.cart.push(cartItem);
             this.cart_count = this.cart_count + 1;
+            this.cart_total = this.cart_total + songPrice;
         }
         this.setLocarStorageCart();
     };
-    HomeComponent.prototype.isInCartUpdate = function (songLink) {
-        //console.log(this.cart)
+    HomeComponent.prototype.isInCartUpdate = function (songLink, songPrice) {
         var hasMatch = false;
         for (var index = 0; index < this.cart.length; ++index) {
             var cartItem = this.cart[index];
             if (cartItem.songLink == songLink) {
                 hasMatch = true;
                 cartItem.count = cartItem.count + 1;
-                console.log(this.cart);
+                this.cart_total = this.cart_total + songPrice;
+                //console.log(this.cart)
                 break;
             }
         }
@@ -446,10 +524,16 @@ var HomeComponent = /** @class */ (function () {
     };
     HomeComponent.prototype.setLocarStorageCart = function () {
         localStorage.setItem("cart", JSON.stringify(this.cart));
+        console.log(this.cart_total);
+        localStorage.setItem("cart_total", String(this.cart_total));
     };
-    HomeComponent.prototype.getsetLocarStorageCart = function () {
+    HomeComponent.prototype.getLocarStorageCart = function () {
         if (localStorage.getItem("cart"))
             this.cart = JSON.parse(localStorage.getItem("cart"));
+    };
+    HomeComponent.prototype.getLocalStorageCartAmount = function () {
+        if (localStorage.getItem("cart_total"))
+            this.cart_total = parseInt(localStorage.getItem("cart_total"));
     };
     HomeComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({

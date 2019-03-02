@@ -49,7 +49,7 @@
                       <h3><a routerLink="songdetails/{{song.songLink}}">{{song.songName}}</a></h3>
                     <p>Artist : {{song.songArtist}}</p>
                     <div class="social">
-                      <a (click)="addToCart(song.songLink,song.songName,song.songImage)"><i class="fa fa-plus"> </i>Add to cart</a>
+                      <a class="btn btn-info" (click)="addToCart(song.songLink,song.songName,song.songImage,song.price)"><i class="fa fa-plus"> </i>Add to cart</a>
                       
                     </div>
                 </div>  
