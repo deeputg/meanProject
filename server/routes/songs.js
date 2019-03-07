@@ -1,5 +1,4 @@
 var express = require("express")
-var mongoose = require("mongoose")
 var expressFileUpload = require("express-fileupload")
 
 var genureModel = require("../model/genure")
@@ -9,17 +8,6 @@ var router = express.Router();
 
 router.use(expressFileUpload());
 
-const dburl = 
-process.env.MONGOLAB_URI ||
-process.env.MONGOHQ_URL ||
-"mongodb://127.0.0.1:27017/mymongodb";
-mongoose.connect(dburl,function(err){
-    if(err)
-    console.log("db connection error")
-})
-
-
-
 router.get("/detail/:songLink",function(req,res){
     songModel.find({songLink:req.params.songLink},function(err,result){
         //res.render("songAdd",{data:result,msgData:data})
@@ -27,30 +15,35 @@ router.get("/detail/:songLink",function(req,res){
         res.send(result)
     })
 })
-
-
+router.post("/test",function(req,res){
+    console.log(req.body);
+})
 router.post("/add",function(req,res){
-    let songLink = (req.body.songName).replace(/ /g,"_");
-    //console.log(songLink)
-    let fileObj = req.files.songImage;
+    console.log(req.body)
+    let songLink = (req.body.songItem.songName).replace(/ /g,"_");
+    
+    let fileObj = req.files.songItem.songImage;
+    console.log(fileObj.name)
     fileObj.mv((__dirname).replace("routes","/")+"public/images/song/"+songLink+"_"+fileObj.name)
-    genureModel.find({_id:req.body.songGenure},function(err,genureResult){
+    genureModel.find({_id:req.body.songItem.songGenure},function(err,genureResult){
         //console.log(genureResult)
         const newSong = new songModel({
-            songLink:songLink,songName:req.body.songName,
-            songAlbum:req.body.songAlbum,
-            songDesc:req.body.songDesc,
+            songLink:songLink,songName:req.body.songItem.songName,
+            songAlbum:req.body.songItem.songAlbum,
+            songDesc:req.body.songItem.songDesc,
             songImage:songLink+"_"+fileObj.name,
-            songArtist:req.body.songArtist,
+            songArtist:req.body.songItem.songArtist,
             genureId:genureResult._id,
-            songGenure:req.body.songGenure,
-            songYoutubeLink:req.body.songYoutubeLink});
+            songGenure:req.body.songItem.songGenure,
+            songYoutubeLink:req.body.songItem.songYoutubeLink,
+            price:req.body.songItem.songPrice
+        });
        
         newSong.save(function(err){
             if(err)
-            console.send("error while inserting"+err)
+            console.send(JSON.stringify({data:true,text:err,class:"alert alert-danger"}))
             else
-            res.redirect("/song/add/success")
+            console.send(JSON.stringify({data:true,text:"Aong added successfully!",class:"alert alert-success"}))
         })
     })
 })

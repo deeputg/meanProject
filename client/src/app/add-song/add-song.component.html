@@ -1,0 +1,124 @@
+
+<main id="main">
+  <section id="about">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 mt-5">
+          <h2>Add Song</h2>
+          <p>"There is pleasure in the pathless woods, there is rapture in the lonely shore, there is society where none intrudes, by the deep sea, and music in its roar; I love not Man the less, but Nature more." 
+              <br>- Lord Byron</p>
+        </div>
+        <div class="col-lg-3">
+          
+        </div>
+        <div class="col-lg-3">
+          
+        </div>
+      </div>
+    </div>
+  </section>
+<!--==========================
+Contact Section
+============================-->
+<section id="contact" class="section-bg wow fadeInUp">
+
+
+  <div *ngIf="msgData.data" class="{{msgData.msgClass}}">{{msgData.msgText}}</div>
+
+
+  <div class="form">
+    <form class="contactForm" #addForm="ngForm" (ngSubmit)="onSubmit()">
+
+      <div class="form-row">
+        <div class="col-md-3"></div>
+        <div class="form-group col-md-6">
+          <input type="text" id="songName" name="songName" class="form-control" placeholder="Song Title : " data-rule="minlen:4" data-msg="Please enter at least 4 chars" [(ngModel)]="songName" />
+          <div class="validation"></div>
+          
+          <!-- <div *ngIf="name1.invalid && (name1.dirty || name1.touched)" class="alert alert-danger">
+            <div *ngIf="name1.errors.required">Song Name is required. </div>
+            <div *ngIf="songName.errors.minlength">song Name must be at least 4 characters long.</div>
+          </div> -->
+
+          <div class="col-md-3"></div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="col-md-3"></div>
+        <div class="form-group col-md-6">
+          <input type="text" name="songAlbum" class="form-control" placeholder="Song Album : " data-rule="minlen:4" data-msg="Please enter at least 4 chars" [(ngModel)]="songAlbum" />
+          <div class="validation"></div>
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+    
+      <div class="form-row">
+        <div class="col-md-3"></div>
+        <div class="form-group col-md-6">
+          <input type="text" name="songArtist" class="form-control" placeholder="Song Artist : " data-rule="minlen:4" data-msg="Please enter at least 4 chars" [(ngModel)]="songArtist" />
+          <div class="validation"></div>
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+
+      <div class="form-row">
+            <div class="col-md-3"></div>
+            <div class="form-group col-md-6">
+              <input type="text" name="songYoutubeLink" class="form-control" placeholder="Youtube Link: " data-rule="minlen:4" data-msg="Please enter youtube link" [(ngModel)]="songYoutubeLink"/>
+              <div class="validation"></div>
+            </div>
+            <div class="col-md-3"></div>
+      </div>
+
+      <div class="form-row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <textarea class="form-control" name="songDesc" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Song Description" [(ngModel)]="songDesc" ></textarea>
+            <div class="validation"></div>
+          </div>
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+
+      <div class="form-row">
+        <div class="col-md-3"></div>
+        <div class="form-group col-md-6">
+          <div class="col-md-2" style="float: left;">Genre :</div> 
+          <select name="songGenure" data-rule="required" data-msg="Please Select a Genre" [(ngModel)]="songGenure" >
+                <option *ngFor="let gen of genreList" value="{{gen.genureLink}}">{{gen.genureName}}</option>
+          </select> 
+          <div class="validation"></div>
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+
+      <div class="form-row">
+        <div class="col-md-3"></div>
+        <div class="form-group col-md-6">
+          <input type="text" name="songPrice" data-rule="required" class="form-control" placeholder="Price " data-msg="Please enter price" [(ngModel)]="songPrice"/>
+          <div class="validation"></div>
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+
+
+      <div class="form-row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <input type="file" name="songImage" data-rule="required" data-msg="Please choose an image" [(ngModel)]="songImage" />
+            <div class="validation"></div>
+          </div>
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+
+      <div class="text-center"><button type="submit" >Add</button></div>
+
+    </form>
+  </div>
+
+</section><!-- #contact -->
+</main>

@@ -17,6 +17,11 @@ mongoose.connect(dburl,function(err){
     console.log("db connection error")
 })
 
+router.get("",function(req,res){
+    genureModel.find({},function(err,result){
+        res.send(result)
+    })
+})
 
 router.post("/add",function(req,res){
     console.log("entered in post")

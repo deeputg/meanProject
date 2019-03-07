@@ -41,7 +41,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "\n<main id=\"main\">\n  <section id=\"about\">\n    <div class=\"container\">\n      <div class=\"row\">\n        <div class=\"col-lg-6 mt-5\">\n          <h2>Add Song</h2>\n          <p>\"There is pleasure in the pathless woods, there is rapture in the lonely shore, there is society where none intrudes, by the deep sea, and music in its roar; I love not Man the less, but Nature more.\" \n              <br>- Lord Byron</p>\n        </div>\n        <div class=\"col-lg-3\">\n          \n        </div>\n        <div class=\"col-lg-3\">\n          \n        </div>\n      </div>\n    </div>\n  </section>\n<!--==========================\nContact Section\n============================-->\n<section id=\"contact\" class=\"section-bg wow fadeInUp\">\n\n\n  <div *ngIf=\"msgData.data\" class=\"{{msgData.msgClass}}\">{{msgData.msgText}}</div>\n\n\n  <div class=\"form\">\n    <form class=\"contactForm\" #addForm=\"ngForm\" (ngSubmit)=\"onSubmit()\">\n\n      <div class=\"form-row\">\n        <div class=\"col-md-3\"></div>\n        <div class=\"form-group col-md-6\">\n          <input type=\"text\" id=\"songName\" name=\"songName\" class=\"form-control\" placeholder=\"Song Title : \" data-rule=\"minlen:4\" data-msg=\"Please enter at least 4 chars\" [(ngModel)]=\"songName\" />\n          <div class=\"validation\"></div>\n          \n          <!-- <div *ngIf=\"name1.invalid && (name1.dirty || name1.touched)\" class=\"alert alert-danger\">\n            <div *ngIf=\"name1.errors.required\">Song Name is required. </div>\n            <div *ngIf=\"songName.errors.minlength\">song Name must be at least 4 characters long.</div>\n          </div> -->\n\n          <div class=\"col-md-3\"></div>\n        </div>\n      </div>\n\n      <div class=\"form-row\">\n        <div class=\"col-md-3\"></div>\n        <div class=\"form-group col-md-6\">\n          <input type=\"text\" name=\"songAlbum\" class=\"form-control\" placeholder=\"Song Album : \" data-rule=\"minlen:4\" data-msg=\"Please enter at least 4 chars\" [(ngModel)]=\"songAlbum\" />\n          <div class=\"validation\"></div>\n        </div>\n        <div class=\"col-md-3\"></div>\n      </div>\n    \n      <div class=\"form-row\">\n        <div class=\"col-md-3\"></div>\n        <div class=\"form-group col-md-6\">\n          <input type=\"text\" name=\"songArtist\" class=\"form-control\" placeholder=\"Song Artist : \" data-rule=\"minlen:4\" data-msg=\"Please enter at least 4 chars\" [(ngModel)]=\"songArtist\" />\n          <div class=\"validation\"></div>\n        </div>\n        <div class=\"col-md-3\"></div>\n      </div>\n\n      <div class=\"form-row\">\n            <div class=\"col-md-3\"></div>\n            <div class=\"form-group col-md-6\">\n              <input type=\"text\" name=\"songYoutubeLink\" class=\"form-control\" placeholder=\"Youtube Link: \" data-rule=\"minlen:4\" data-msg=\"Please enter youtube link\" [(ngModel)]=\"songYoutubeLink\"/>\n              <div class=\"validation\"></div>\n            </div>\n            <div class=\"col-md-3\"></div>\n      </div>\n\n      <div class=\"form-row\">\n        <div class=\"col-md-3\"></div>\n        <div class=\"col-md-6\">\n          <div class=\"form-group\">\n            <textarea class=\"form-control\" name=\"songDesc\" rows=\"5\" data-rule=\"required\" data-msg=\"Please write something for us\" placeholder=\"Song Description\" [(ngModel)]=\"songDesc\" ></textarea>\n            <div class=\"validation\"></div>\n          </div>\n        </div>\n        <div class=\"col-md-3\"></div>\n      </div>\n\n      <div class=\"form-row\">\n        <div class=\"col-md-3\"></div>\n        <div class=\"form-group col-md-6\">\n          <div class=\"col-md-2\" style=\"float: left;\">Genre :</div> \n          <select name=\"songGenure\" data-rule=\"required\" data-msg=\"Please Select a Genre\" [(ngModel)]=\"songGenure\" >\n                <option *ngFor=\"let gen of genreList\" value=\"{{gen.genureLink}}\">{{gen.genureName}}</option>\n          </select> \n          <div class=\"validation\"></div>\n        </div>\n        <div class=\"col-md-3\"></div>\n      </div>\n\n      <div class=\"form-row\">\n        <div class=\"col-md-3\"></div>\n        <div class=\"form-group col-md-6\">\n          <input type=\"text\" name=\"songPrice\" data-rule=\"required\" class=\"form-control\" placeholder=\"Price \" data-msg=\"Please enter price\" [(ngModel)]=\"songPrice\"/>\n          <div class=\"validation\"></div>\n        </div>\n        <div class=\"col-md-3\"></div>\n      </div>\n\n\n      <div class=\"form-row\">\n        <div class=\"col-md-3\"></div>\n        <div class=\"col-md-6\">\n          <div class=\"form-group\">\n            <input type=\"file\" name=\"songImage\" data-rule=\"required\" data-msg=\"Please choose an image\" [(ngModel)]=\"songImage\" />\n            <div class=\"validation\"></div>\n          </div>\n        </div>\n        <div class=\"col-md-3\"></div>\n      </div>\n\n      <div class=\"text-center\"><button type=\"submit\" >Add</button></div>\n\n    </form>\n  </div>\n\n</section><!-- #contact -->\n</main>"
 
 /***/ }),
 
@@ -57,12 +57,44 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddSongComponent", function() { return AddSongComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+
 
 
 var AddSongComponent = /** @class */ (function () {
-    function AddSongComponent() {
+    function AddSongComponent(httpVar) {
+        this.httpVar = httpVar;
+        this.songName = "";
+        this.songAlbum = "";
+        this.songArtist = "";
+        this.songYoutubeLink = "";
+        this.songDesc = "";
+        this.songGenure = "";
+        this.msgData = { data: false };
+        this.baseUrl = window.location.origin;
     }
     AddSongComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        var link = "http://127.0.0.1:8000/genure/";
+        //let link ="genure"
+        this.httpVar.get(link).subscribe(function (data) {
+            _this.genreList = data;
+            console.log(_this.genreList);
+        });
+        this.httpVar.post("http://127.0.0.1:8000/song/test", { "name": "name" }).subscribe(function (data) {
+        });
+    };
+    AddSongComponent.prototype.onSubmit = function () {
+        console.log(this.songGenure);
+        // if(this.songName!=""&&this.songAlbum!=""&&this.songArtist!=""&&this.songYoutubeLink!=""&&this.songDesc!=""&&this.songGenure!=""){
+        var newSong = { songName: this.songName, songAlbum: this.songAlbum, songArtist: this.songArtist, songYoutubeLink: this.songYoutubeLink, songDesc: this.songDesc, songGenure: this.songGenure, songImage: this.songImage, songPrice: this.songPrice };
+        console.log(newSong);
+        var url = "http://127.0.0.1:8000/song/add";
+        this.httpVar.post(url, { songItem: newSong }).subscribe(function (data) { return function (data) {
+            this.msgData = data;
+            console.log(data);
+        }; });
+        // }
     };
     AddSongComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -70,7 +102,7 @@ var AddSongComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./add-song.component.html */ "./src/app/add-song/add-song.component.html"),
             styles: [__webpack_require__(/*! ./add-song.component.css */ "./src/app/add-song/add-song.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
     ], AddSongComponent);
     return AddSongComponent;
 }());
@@ -156,6 +188,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _song_details_song_details_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./song-details/song-details.component */ "./src/app/song-details/song-details.component.ts");
 /* harmony import */ var _cart_cart_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./cart/cart.component */ "./src/app/cart/cart.component.ts");
 /* harmony import */ var _add_song_add_song_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./add-song/add-song.component */ "./src/app/add-song/add-song.component.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _cart_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./cart.service */ "./src/app/cart.service.ts");
+/* harmony import */ var _db_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./db.service */ "./src/app/db.service.ts");
 
 
 
@@ -167,6 +202,10 @@ __webpack_require__.r(__webpack_exports__);
 
 //import hhtpClient Module for listenig from a server
 
+
+
+
+//import Form model 
 
 
 
@@ -193,13 +232,109 @@ var AppModule = /** @class */ (function () {
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
                 _angular_router__WEBPACK_IMPORTED_MODULE_6__["RouterModule"].forRoot(appRoutes),
-                _angular_common_http__WEBPACK_IMPORTED_MODULE_8__["HttpClientModule"]
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_8__["HttpClientModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_12__["FormsModule"]
             ],
-            providers: [],
+            providers: [_cart_service__WEBPACK_IMPORTED_MODULE_13__["CartService"], _db_service__WEBPACK_IMPORTED_MODULE_14__["DbService"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/cart.service.ts":
+/*!*********************************!*\
+  !*** ./src/app/cart.service.ts ***!
+  \*********************************/
+/*! exports provided: CartService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CartService", function() { return CartService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var CartService = /** @class */ (function () {
+    function CartService() {
+        this.cart = [];
+        this.cart_total = 0;
+        this.cart_count = 0;
+    }
+    CartService.prototype.addToCart = function (songLink, songName, songImage, songPrice) {
+        console.log(songPrice);
+        if (!this.isInCartUpdate(songLink, songPrice)) {
+            var cartItem = { songLink: songLink, songName: songName, songImage: songImage, count: 1, songPrice: songPrice };
+            this.cart.push(cartItem);
+            this.cart_count = this.cart_count + 1;
+            this.cart_total = this.cart_total + songPrice;
+        }
+        this.setLocarStorageCart();
+    };
+    CartService.prototype.minusFromCart = function (songLink, songPrice) {
+        for (var index = 0; index < this.cart.length; ++index) {
+            var cartItem = this.cart[index];
+            if (cartItem.songLink == songLink) {
+                cartItem.count = cartItem.count - 1;
+                this.cart_total = this.cart_total - songPrice;
+                if (cartItem.count == 0)
+                    this.removeFromCart(songLink, songPrice);
+            }
+        }
+        this.setLocarStorageCart();
+    };
+    CartService.prototype.removeFromCart = function (songLink, songPrice) {
+        for (var index = 0; index < this.cart.length; ++index) {
+            var cartItem = this.cart[index];
+            if (cartItem.songLink == songLink) {
+                //console.log(this.cart)
+                this.cart_total = this.cart_total - (cartItem.count * songPrice);
+                this.cart.splice(index, 1);
+                //console.log(this.cart)
+            }
+        }
+        this.setLocarStorageCart();
+    };
+    CartService.prototype.isInCartUpdate = function (songLink, songPrice) {
+        //console.log(this.cart)
+        var hasMatch = false;
+        for (var index = 0; index < this.cart.length; ++index) {
+            var cartItem = this.cart[index];
+            if (cartItem.songLink == songLink) {
+                hasMatch = true;
+                cartItem.count = cartItem.count + 1;
+                this.cart_total = this.cart_total + songPrice;
+                //console.log(this.cart)
+                break;
+            }
+        }
+        return hasMatch;
+    };
+    CartService.prototype.setLocarStorageCart = function () {
+        localStorage.setItem("cart", JSON.stringify(this.cart));
+        localStorage.setItem("cart_total", String(this.cart_total));
+    };
+    CartService.prototype.getLocarStorageCart = function () {
+        if (localStorage.getItem("cart")) {
+            this.cart = JSON.parse(localStorage.getItem("cart"));
+        }
+    };
+    CartService.prototype.getLocalStorageCartAmount = function () {
+        if (localStorage.getItem("cart_total"))
+            this.cart_total = parseInt(localStorage.getItem("cart_total"));
+    };
+    CartService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], CartService);
+    return CartService;
 }());
 
 
@@ -240,80 +375,39 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CartComponent", function() { return CartComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _cart_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../cart.service */ "./src/app/cart.service.ts");
+
 
 
 var CartComponent = /** @class */ (function () {
-    function CartComponent() {
+    function CartComponent(cartSr) {
+        this.cartSr = cartSr;
         this.cart_count = 0;
         this.cart_total = 0;
         this.cart = [];
     }
     CartComponent.prototype.ngOnInit = function () {
-        this.getLocarStorageCart();
-        this.getLocalStorageCartAmount();
-        this.cart_count = this.cart.length;
+        this.cartSr.getLocarStorageCart();
+        this.cartSr.getLocalStorageCartAmount();
+        this.setCart();
         window.scrollTo(0, 0);
     };
+    CartComponent.prototype.setCart = function () {
+        this.cart = this.cartSr.cart;
+        this.cart_count = this.cart.length;
+        this.cart_total = this.cartSr.cart_total;
+    };
     CartComponent.prototype.addToCart = function (songLink, songName, songImage, songPrice) {
-        console.log(songPrice);
-        if (!this.isInCartUpdate(songLink, songPrice)) {
-            var cartItem = { songLink: songLink, songName: songName, songImage: songImage, count: 1, songPrice: songPrice };
-            this.cart.push(cartItem);
-            this.cart_count = this.cart_count + 1;
-            this.cart_total = this.cart_total + songPrice;
-        }
-        this.setLocarStorageCart();
+        this.cartSr.addToCart(songLink, songName, songImage, songPrice);
+        this.setCart();
     };
     CartComponent.prototype.minusFromCart = function (songLink, songPrice) {
-        for (var index = 0; index < this.cart.length; ++index) {
-            var cartItem = this.cart[index];
-            if (cartItem.songLink == songLink) {
-                cartItem.count = cartItem.count - 1;
-                this.cart_total = this.cart_total - songPrice;
-                if (cartItem.count == 0)
-                    this.removeFromCart(songLink, songPrice);
-            }
-        }
-        this.setLocarStorageCart();
+        this.cartSr.minusFromCart(songLink, songPrice);
+        this.setCart();
     };
     CartComponent.prototype.removeFromCart = function (songLink, songPrice) {
-        for (var index = 0; index < this.cart.length; ++index) {
-            var cartItem = this.cart[index];
-            if (cartItem.songLink == songLink) {
-                //console.log(this.cart)
-                this.cart_total = this.cart_total - (cartItem.count * songPrice);
-                this.cart.splice(index, 1);
-                //console.log(this.cart)
-            }
-        }
-        this.setLocarStorageCart();
-    };
-    CartComponent.prototype.isInCartUpdate = function (songLink, songPrice) {
-        //console.log(this.cart)
-        var hasMatch = false;
-        for (var index = 0; index < this.cart.length; ++index) {
-            var cartItem = this.cart[index];
-            if (cartItem.songLink == songLink) {
-                hasMatch = true;
-                cartItem.count = cartItem.count + 1;
-                this.cart_total = this.cart_total + songPrice;
-                //console.log(this.cart)
-                break;
-            }
-        }
-        return hasMatch;
-    };
-    CartComponent.prototype.setLocarStorageCart = function () {
-        localStorage.setItem("cart", JSON.stringify(this.cart));
-        localStorage.setItem("cart_total", String(this.cart_total));
-    };
-    CartComponent.prototype.getLocarStorageCart = function () {
-        if (localStorage.getItem("cart"))
-            this.cart = JSON.parse(localStorage.getItem("cart"));
-    };
-    CartComponent.prototype.getLocalStorageCartAmount = function () {
-        if (localStorage.getItem("cart_total"))
-            this.cart_total = parseInt(localStorage.getItem("cart_total"));
+        this.cartSr.removeFromCart(songLink, songPrice);
+        this.setCart();
     };
     CartComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -321,9 +415,39 @@ var CartComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./cart.component.html */ "./src/app/cart/cart.component.html"),
             styles: [__webpack_require__(/*! ./cart.component.css */ "./src/app/cart/cart.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_cart_service__WEBPACK_IMPORTED_MODULE_2__["CartService"]])
     ], CartComponent);
     return CartComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/db.service.ts":
+/*!*******************************!*\
+  !*** ./src/app/db.service.ts ***!
+  \*******************************/
+/*! exports provided: DbService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DbService", function() { return DbService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var DbService = /** @class */ (function () {
+    function DbService() {
+    }
+    DbService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], DbService);
+    return DbService;
 }());
 
 
@@ -460,7 +584,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<a routerLink=\"cart\" class=\"shopping-cart\">\n  <!-- <i class=\"fa fa-envelope fa-5x fa-border icon-grey badge\">5</i> -->\n  <i class=\"fa fa-shopping-cart\"> <span class=\"cart_count\">{{cart_count}}</span> </i>\n</a>\n    <!--==========================\n    Intro Section\n  ============================-->\n  <section id=\"intro\">\n    <div class=\"intro-container wow fadeIn\">\n      <h1 class=\"mb-4 pb-0\">The ICT<br><span>Music Lover</span> Portal</h1>\n      <p class=\"mb-4 pb-0\">“Music is like a dream. One that I cannot hear.” ―  Ludwig van Beethoven</p>\n      \n      <a href=\"#about\" class=\"about-btn scrollto\">About Us</a>\n    </div>\n  </section>\n\n<main id=\"main\">\n  <!--==========================\n        About Section\n      ============================-->\n      <section id=\"about\">\n          <div class=\"container\">\n            <div class=\"row\">\n              <div class=\"col-lg-8\">\n                <h2>About The Music Lovers Portal</h2>\n                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque urna ante, eleifend non accumsan ut, fermentum eu purus. Morbi euismod eu sem at pulvinar. Nullam purus orci, blandit eget faucibus vitae, commodo ut odio. Vivamus vel ex at leo euismod placerat eget condimentum odio. Nunc elementum, nisi quis aliquet dapibus, arcu nibh aliquam massa, non mollis eros felis sed mi. Donec laoreet lorem vehicula sem viverra egestas.  </p>\n              </div>\n              <div class=\"col-lg-4\">\n                \n              </div>\n            </div>\n          </div>\n        </section>\n<!-- Songs HOme Section -->\n<section id=\"songs\" class=\"wow fadeInUp\">\n  <div class=\"container\">\n    <div class=\"section-header\">\n      <h2>Our Collection</h2>\n      <p>Here are some of our Songs</p>\n    </div>\n\n    <div class=\"row\">\n      \n        <div class=\"col-lg-4 col-md-6\" *ngFor=\"let song of songData\">\n            <div class=\"speaker\">\n\n                <img class=\"img-fluid\" src=\"../../assets/img/song/{{song.songImage}}\" alt=\"\">\n                <div class=\"details\">\n                      <h3><a routerLink=\"songdetails/{{song.songLink}}\">{{song.songName}}</a></h3>\n                    <p>Artist : {{song.songArtist}}</p>\n                    <div class=\"social\">\n                      <a class=\"btn btn-info\" (click)=\"addToCart(song.songLink,song.songName,song.songImage,song.price)\"><i class=\"fa fa-plus\"> </i>Add to cart</a>\n                      \n                    </div>\n                </div>  \n                </div> \n                </div>  \n    \n\n</div>\n</div>\n\n</section>\n\n<!-- songs section ends -->\n\n  \n  </main>"
+module.exports = "<a routerLink=\"cart\" class=\"shopping-cart\">\n  <!-- <i class=\"fa fa-envelope fa-5x fa-border icon-grey badge\">5</i> -->\n  <i class=\"fa fa-shopping-cart\"> <span class=\"cart_count\">{{cart_count}}</span> </i>\n</a>\n    <!--==========================\n    Intro Section\n  ============================-->\n  <section id=\"intro\">\n    <div class=\"intro-container wow fadeIn\">\n      <h1 class=\"mb-4 pb-0\">The ICT<br><span>Music Lover</span> Portal</h1>\n      <p class=\"mb-4 pb-0\">“Music is like a dream. One that I cannot hear.” ―  Ludwig van Beethoven</p>\n      \n      <a href=\"#about\" class=\"about-btn scrollto\">About Us</a>\n    </div>\n  </section>\n\n<main id=\"main\">\n  <!--==========================\n        About Section\n      ============================-->\n      <section id=\"about\">\n          <div class=\"container\">\n            <div class=\"row\">\n              <div class=\"col-lg-8\">\n                <h2>About The Music Lovers Portal</h2>\n                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque urna ante, eleifend non accumsan ut, fermentum eu purus. Morbi euismod eu sem at pulvinar. Nullam purus orci, blandit eget faucibus vitae, commodo ut odio. Vivamus vel ex at leo euismod placerat eget condimentum odio. Nunc elementum, nisi quis aliquet dapibus, arcu nibh aliquam massa, non mollis eros felis sed mi. Donec laoreet lorem vehicula sem viverra egestas.  </p>\n              </div>\n              <div class=\"col-lg-4\">\n                \n              </div>\n            </div>\n          </div>\n        </section>\n<!-- Songs HOme Section -->\n<section id=\"songs\" class=\"wow fadeInUp\">\n  <div class=\"container\">\n    <div class=\"section-header\">\n      <h2>Our Collection</h2>\n      <p>Here are some of our Songs</p>\n    </div>\n\n    <div class=\"row\">\n      \n        <div class=\"col-lg-4 col-md-6\" *ngFor=\"let song of songData\">\n            <div class=\"speaker\">\n\n                <img class=\"img-fluid\" src=\"../../assets/img/song/{{song.songImage}}\" alt=\"\">\n                <div class=\"details\">\n                      <h3><a routerLink=\"songdetails/{{song.songLink}}\">{{song.songName}}</a></h3>\n                    <p>Artist : {{song.songArtist}}</p>\n                    <p> <a class=\"btn btn-info\" (click)=\"addToCart(song.songLink,song.songName,song.songImage,song.price)\"><i class=\"fa fa-plus\"> </i>Add to cart</a></p>\n                    <div class=\"social\">\n                     \n                      \n                    </div>\n                </div>  \n                </div> \n                </div>  \n    \n\n</div>\n</div>\n\n</section>\n\n<!-- songs section ends -->\n\n  \n  </main>"
 
 /***/ }),
 
@@ -477,12 +601,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _cart_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../cart.service */ "./src/app/cart.service.ts");
+
 
 
 
 var HomeComponent = /** @class */ (function () {
-    function HomeComponent(httpVar) {
+    function HomeComponent(httpVar, cartSr) {
         this.httpVar = httpVar;
+        this.cartSr = cartSr;
         this.cart_count = 0;
         this.cart_total = 0;
         this.cart = [];
@@ -493,47 +620,28 @@ var HomeComponent = /** @class */ (function () {
         //let homelink = "http://127.0.0.1:8000/home";
         this.httpVar.get(homelink).subscribe(function (data) {
             _this.songData = data;
-            _this.getLocarStorageCart();
-            _this.getLocalStorageCartAmount();
-            _this.cart_count = _this.cart.length;
         });
+        this.cartSr.getLocarStorageCart();
+        this.cartSr.getLocalStorageCartAmount();
+        this.setCart();
+        window.scrollTo(0, 0);
+    };
+    HomeComponent.prototype.setCart = function () {
+        this.cart = this.cartSr.cart;
+        this.cart_count = this.cart.length;
+        this.cart_total = this.cartSr.cart_total;
     };
     HomeComponent.prototype.addToCart = function (songLink, songName, songImage, songPrice) {
-        //console.log(songPrice)
-        if (!this.isInCartUpdate(songLink, songPrice)) {
-            var cartItem = { songLink: songLink, songName: songName, songImage: songImage, count: 1, songPrice: songPrice };
-            this.cart.push(cartItem);
-            this.cart_count = this.cart_count + 1;
-            this.cart_total = this.cart_total + songPrice;
-        }
-        this.setLocarStorageCart();
+        this.cartSr.addToCart(songLink, songName, songImage, songPrice);
+        this.setCart();
     };
-    HomeComponent.prototype.isInCartUpdate = function (songLink, songPrice) {
-        var hasMatch = false;
-        for (var index = 0; index < this.cart.length; ++index) {
-            var cartItem = this.cart[index];
-            if (cartItem.songLink == songLink) {
-                hasMatch = true;
-                cartItem.count = cartItem.count + 1;
-                this.cart_total = this.cart_total + songPrice;
-                //console.log(this.cart)
-                break;
-            }
-        }
-        return hasMatch;
+    HomeComponent.prototype.minusFromCart = function (songLink, songPrice) {
+        this.cartSr.minusFromCart(songLink, songPrice);
+        this.setCart();
     };
-    HomeComponent.prototype.setLocarStorageCart = function () {
-        localStorage.setItem("cart", JSON.stringify(this.cart));
-        console.log(this.cart_total);
-        localStorage.setItem("cart_total", String(this.cart_total));
-    };
-    HomeComponent.prototype.getLocarStorageCart = function () {
-        if (localStorage.getItem("cart"))
-            this.cart = JSON.parse(localStorage.getItem("cart"));
-    };
-    HomeComponent.prototype.getLocalStorageCartAmount = function () {
-        if (localStorage.getItem("cart_total"))
-            this.cart_total = parseInt(localStorage.getItem("cart_total"));
+    HomeComponent.prototype.removeFromCart = function (songLink, songPrice) {
+        this.cartSr.removeFromCart(songLink, songPrice);
+        this.setCart();
     };
     HomeComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -541,7 +649,8 @@ var HomeComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./home.component.html */ "./src/app/home/home.component.html"),
             styles: [__webpack_require__(/*! ./home.component.css */ "./src/app/home/home.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"],
+            _cart_service__WEBPACK_IMPORTED_MODULE_3__["CartService"]])
     ], HomeComponent);
     return HomeComponent;
 }());

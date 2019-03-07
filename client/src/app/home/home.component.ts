@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
+import {CartService} from "../cart.service"
 
 @Component({
   selector: 'app-home',
@@ -12,57 +13,41 @@ export class HomeComponent implements OnInit {
   cart_count= 0;
   cart_total=0;
   cart=[];
-  constructor(private httpVar:HttpClient) { }
+  constructor(
+    private httpVar:HttpClient,
+    private cartSr:CartService
+  ) { }
 
   ngOnInit() {
     let homelink = "home";
     //let homelink = "http://127.0.0.1:8000/home";
     this.httpVar.get(homelink).subscribe(data=>{
       this.songData = data;
-      this.getLocarStorageCart()
-      this.getLocalStorageCartAmount();
-      this.cart_count=this.cart.length
     })
-    
+    this.cartSr.getLocarStorageCart()
+    this.cartSr.getLocalStorageCartAmount()
+    this.setCart()
+    window.scrollTo(0, 0)
   }
-  addToCart(songLink,songName,songImage,songPrice){
-    //console.log(songPrice)
-    if(!this.isInCartUpdate(songLink,songPrice)){
-     let cartItem = {songLink:songLink,songName:songName,songImage:songImage,count:1,songPrice:songPrice}
-     this.cart.push(cartItem);
-     this.cart_count = this.cart_count+1;
-     this.cart_total = this.cart_total+songPrice;
-    }
-    this.setLocarStorageCart();
+  setCart(){
+    this.cart = this.cartSr.cart
+    this.cart_count = this.cart.length
+    this.cart_total = this.cartSr.cart_total
   }
-  isInCartUpdate(songLink,songPrice){
-    
-    var hasMatch =false;
 
-    for (var index = 0; index < this.cart.length; ++index) {
-      var cartItem = this.cart[index];
-      if(cartItem.songLink == songLink){
-        hasMatch = true;
-        cartItem.count = cartItem.count+1;
-        this.cart_total = this.cart_total+songPrice;
-        
-        //console.log(this.cart)
-        break;
-      }
-    }
-    return hasMatch;
+  addToCart(songLink,songName,songImage,songPrice){
+    this.cartSr.addToCart(songLink,songName,songImage,songPrice);
+    this.setCart()
   }
-  setLocarStorageCart(){
-    localStorage.setItem("cart",JSON.stringify(this.cart))
-    console.log(this.cart_total)
-    localStorage.setItem("cart_total",String(this.cart_total))
+  
+  minusFromCart(songLink,songPrice){
+    this.cartSr.minusFromCart(songLink,songPrice)
+    this.setCart()
   }
-  getLocarStorageCart(){
-    if(localStorage.getItem("cart"))
-      this.cart = JSON.parse(localStorage.getItem("cart"))
+
+  removeFromCart(songLink,songPrice){
+    this.cartSr.removeFromCart(songLink,songPrice)
+    this.setCart()
   }
-  getLocalStorageCartAmount(){
-    if(localStorage.getItem("cart_total"))
-    this.cart_total = parseInt(localStorage.getItem("cart_total"))
-  }
+
 }

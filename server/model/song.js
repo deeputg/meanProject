@@ -10,6 +10,7 @@ var songSchema = new schema({
     songGenure:{type:String},
     genureId:{type:schema.Types.ObjectId,ref:"genure"},
     songImage:{type:String},
-    songYoutubeLink:{type:String}
+    songYoutubeLink:{type:String},
+    price:{type:Number}
 })
 module.exports=mongoose.model("song",songSchema)

@@ -12,6 +12,10 @@ import {HttpClientModule} from "@angular/common/http";
 import { SongDetailsComponent } from './song-details/song-details.component';
 import { CartComponent } from './cart/cart.component';
 import { AddSongComponent } from './add-song/add-song.component'
+//import Form model 
+import {FormsModule} from '@angular/forms'
+import {CartService} from "./cart.service"
+import {DbService} from "./db.service"
 
 const appRoutes:Routes = [
   {path:"",component:HomeComponent},
@@ -33,9 +37,10 @@ const appRoutes:Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [CartService,DbService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
